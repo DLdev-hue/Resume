@@ -2,25 +2,23 @@ name: Build LaTeX Resume
 
 on:
   push:
-    branches: [ "main" ] # Runs on every push to the main branch
+    branches: ["main"]
 
 jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: resume.tex # The name of your main .tex file
-          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Compile LaTeX to PDF
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra
+          pdflatex -interaction=nonstopmode -halt-on-error resume.tex
 
-      - name: Create Release with PDF
-        uses: softprops/action-gh-release@v1
-        if: github.ref == 'refs/heads/main' # Only create a release from the main branch
+      - name: Upload PDF as Artifact
+        uses: actions/upload-artifact@v4
         with:
-          files: resume.pdf # The name of the generated PDF file
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: Resume-PDF
+          path: resume.pdf
