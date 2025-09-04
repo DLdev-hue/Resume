@@ -1,0 +1,4 @@
+# LaTeX generated files - CORE RULE: Ignore all .pdf files...
+*.pdf
+# ...except the one built by the GitHub Action workflow.
+!*.pdf
