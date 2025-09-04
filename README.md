@@ -11,5 +11,9 @@ The compiled PDF is automatically built and available in the [**Releases**](http
 1.  **Open an [Issue](https://github.com/DLdev-hue/Resume/issues)** to point out a mistake.
 2.  **Submit a [Pull Request (PR)](https://github.com/DLdev-hue/Resume/pulls)** with a direct fix for a typo or formatting error.
 
+## 📄 Download the Latest PDF
+
+[Click here to download the latest version of my resume](https://github.com/your-username/my-resume/releases/download/v1.0/YourName_Resume.pdf)
+
 ---
 **Source Code:** https://github.com/DLdev-hue/Resume
