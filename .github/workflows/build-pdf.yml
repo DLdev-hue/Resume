@@ -1,0 +1,26 @@
+name: Build LaTeX Resume
+
+on:
+  push:
+    branches: [ "main" ] # Runs on every push to the main branch
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex # The name of your main .tex file
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Create Release with PDF
+        uses: softprops/action-gh-release@v1
+        if: github.ref == 'refs/heads/main' # Only create a release from the main branch
+        with:
+          files: resume.pdf # The name of the generated PDF file
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
