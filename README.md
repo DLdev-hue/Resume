@@ -13,7 +13,7 @@ The compiled PDF is automatically built and available in the [**Releases**](http
 
 ## 📄 Download the Latest PDF
 
-[Click here to download the latest version of my resume](https://github.com/your-username/my-resume/releases/download/v1.0/YourName_Resume.pdf)
+[Click here to download the latest version of my resume](https://github.com/DLdev-hue/Resume/releases/download/v1.0/resume.pdf)
 
 ---
 **Source Code:** https://github.com/DLdev-hue/Resume
