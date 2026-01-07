@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - '**.tex'
+      - "**.tex"
 
 jobs:
   build:
@@ -14,14 +14,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
           root_file: resume.tex
 
-      - name: Commit PDF
+      - name: Commit updated PDF
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto-update resume PDF"
-          file_pattern: "*.pdf"
+          file_pattern: resume.pdf
